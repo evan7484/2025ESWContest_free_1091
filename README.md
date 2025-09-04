@@ -1,5 +1,7 @@
 # 2025ESWContest_free_1091
 
+- https://github.com/WineQueen-dev <- organization link>
+
 ## 🔖 Intro
 
 WINEQUEEN은 **버튼 한 번**으로 와인병을 자동 밀봉·진공 보관하는 디바이스입니다.  
