@@ -187,7 +187,7 @@ def detection_loop():
                         
                         print(f"[ALIGN] Camera center: {cam_center_y}, Wine center: {obj_center_y}, Relative: {relative_x}")
                         
-                        deadzone_pixels = 10
+                        deadzone_pixels = 3
                         
                         if abs(relative_x) <= deadzone_pixels:
                             if last_alignment_check == 0:
@@ -497,6 +497,7 @@ def serial_reader_loop():
                 with state_lock:
                     SYSTEM_STATE = STAY
                     TARGET_ACTION = None
+                button_queue.put_nowait("PROCESS_FINISHED") 
             
             elif line in '1':
                 print("[SERIAL READ] Button 1 - Seal process")
@@ -534,9 +535,9 @@ async def broadcast_buttons():
         elif event == "OPEN_REDIRECT":
             payload = json.dumps({"type": "redirect", "page": "/open"})
             print(f"[WS] redirect /open → {len(clients)} clients")
-        elif event == "PROCESS_FINISHED":
-            payload = json.dumps({"type": "process_status", "status": "finished", "ts": time.time()})
-            print(f"[WS] broadcasting process status=finished → {len(clients)} clients")
+        elif event == "PROCESS_FINISHED":                                                                      
+            payload = json.dumps({"type": "process_status", "status": "finished", "ts": time.time()})          
+            print(f"[WS] broadcasting process status=finished → {len(clients)} clients")  
         else:
             payload = json.dumps({"type": "button", "value": event, "ts": time.time()})
             print(f"[WS] broadcasting button={event} → {len(clients)} clients")
