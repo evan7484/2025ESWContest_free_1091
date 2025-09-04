@@ -1,0 +1,49 @@
+/* 전체 배경색은 body 또는 container에서 지정해야 함 (예: #7f2d41 계열) */
+.wrapper {
+  width: 100%;
+}
+
+.header {
+  font-family: "Pretendard", sans-serif;
+  font-weight: 700;
+  font-size: 64px;
+  color: white;
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  padding: 20px;
+  width: 100%;
+  justify-content: center;
+  margin-top: 50px;
+  margin-bottom: 55px;
+}
+/* 전체 내용 감싸는 wrapper */
+.section {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding: 0 20px;
+  gap: 40px;
+}
+
+/* 비디오 박스 */
+.rectangle {
+  width: 90%;
+  max-width: 700px;
+  aspect-ratio: 1 / 1;
+  border-radius: 12px;
+  background-color: #e0e0e0;
+  box-shadow: 0 8px 20px rgba(0, 0, 0, 0.1);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  overflow: hidden;
+}
+
+/* 비디오 스트림 */
+.rectangle_img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  border-radius: 12px;
+}
